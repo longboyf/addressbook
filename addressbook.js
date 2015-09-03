@@ -1,6 +1,6 @@
-// require("../app.scss");
+require("../app.scss");
 
-// $("#app").append("hello world!");
+$("#app").append("hello world!");
 
 var seedContacts = function () {
 
@@ -41,3 +41,17 @@ var removeContact = function (idx) {
 
 
 window.getContacts = getContacts;
+
+var generateAddressBook = function () {
+  $("#app").append("<table id=\"address-book\"></table>");
+  $("#address-book").append("<thead><th>Name</th></thead>");
+  var contactTmpl = _.template($("#contact-template").html());
+  contacts.getContacts().forEach(function (contact) {
+    $("#address-book").append(contactTmpl(contact));
+    // add to the template
+    // add to the table
+
+  })
+};
+
+generateAddressBook();
